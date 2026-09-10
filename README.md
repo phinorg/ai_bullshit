@@ -13,6 +13,10 @@ one verb + one adjective + one noun.
 
 Then open http://127.0.0.1:5001.
 
+Set `PORT` to run somewhere else:
+
+    PORT=8000 python app.py
+
 ## Editing the words
 
 Each part of speech lives in its own file, one word per line. Blank lines
