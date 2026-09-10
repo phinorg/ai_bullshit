@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Marketing Bullshit Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Syne:wght@800&display=swap">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="shell">
+
+  <div class="strip">
+    <span><b>{{ verbs|length }}</b> verbs</span>
+    <span><b>{{ adjectives|length }}</b> adjectives</span>
+    <span><b>{{ nouns|length }}</b> nouns</span>
+    <span><b>{{ '{:,}'.format(verbs|length * adjectives|length * nouns|length) }}</b> combinations</span>
+  </div>
+
+  <header class="mast">
+    <p class="eyebrow">Roadmap-ready since 2026</p>
+    <h1>Agentic Marketing <span>Bullshit</span> Generator</h1>
+    <p class="lede">
+      Press the button. Take the phrase to your next standup. With apologies to
+      <a href="https://www.dack.com/web/bullshit.html">dack.com's Web Economy Bullshit Generator</a>,
+      which did this for the dot-com boom and is still funnier.
+    </p>
+  </header>
+
+  <main class="gen">
+    <div class="out">
+      <span class="prompt" aria-hidden="true">&gt;</span>
+      <p id="phrase" aria-live="polite" data-verb="{{ first.verb }}"
+         data-adjective="{{ first.adjective }}" data-noun="{{ first.noun }}">{{ first.phrase }}</p>
+    </div>
+    <form class="controls" action="{{ url_for('index') }}" method="get">
+      <button id="make" class="primary" type="submit">Make bullshit</button>
+      <button id="copy" class="ghost" type="button">Copy</button>
+      <span class="hint">or hit <kbd>Enter</kbd></span>
+    </form>
+  </main>
+
+  <section class="lists">
+    <h2>The raw material</h2>
+    <div class="columns">
+      {% for name, words in [('verbs', verbs), ('adjectives', adjectives), ('nouns', nouns)] %}
+      <div class="col">
+        <h3>{{ name }} <em>{{ words|length }}</em></h3>
+        <ul data-kind="{{ name }}">
+          {% for word in words %}<li>{{ word }}</li>{% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <footer>
+    Edit <code>data/verbs.txt</code>, <code>data/adjectives.txt</code> or
+    <code>data/nouns.txt</code> and reload — no restart needed.
+    Raw phrases at <a href="/api/phrase">/api/phrase</a>.
+  </footer>
+
+</div>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

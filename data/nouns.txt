@@ -1,0 +1,65 @@
+# One noun (plural) per line. Blank lines and #-comments are ignored.
+activations
+agent experiences
+agent surfaces
+agent swarms
+agents
+AI overviews
+attribution models
+audiences
+brand kits
+brand voice
+buyer journeys
+citations
+content atoms
+content engines
+context windows
+copilots
+creative variants
+dark social
+demand units
+digital twins
+discovery layers
+embeddings
+engagement loops
+evals
+feedback loops
+first-party data
+funnels
+GTM motions
+guardrails
+hallucinations
+human oversight
+ICPs
+intent signals
+knowledge graphs
+LLM surfaces
+machine customers
+martech stacks
+MCP servers
+model context
+moments of truth
+narratives
+north-star metrics
+ontologies
+orchestration layers
+personas
+pipelines
+playbooks
+prompt libraries
+provenance chains
+RAG stacks
+revenue moments
+semantic layers
+share of model
+share of voice
+synthetic customers
+taxonomies
+telemetry
+token budgets
+tool calls
+touchpoints
+trust signals
+vector stores
+workflows
+zero-click journeys
