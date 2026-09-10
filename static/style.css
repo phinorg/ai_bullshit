@@ -62,8 +62,8 @@ h1 {
   font-family: Syne, "IBM Plex Mono", monospace;
   font-weight: 800;
   font-size: clamp(2.1rem, 1rem + 4.6vw, 4rem);
-  line-height: 0.95;
-  letter-spacing: -0.03em;
+  line-height: 1.08;
+  letter-spacing: 0.01em;
   text-wrap: balance;
   color: #eaf6ee;
 }
@@ -97,8 +97,8 @@ h1 span { color: var(--phosphor); }
   font-family: Syne, "IBM Plex Mono", monospace;
   font-weight: 800;
   font-size: clamp(1.5rem, 0.8rem + 3vw, 2.6rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
   color: var(--phosphor);
   text-wrap: balance;
 }
