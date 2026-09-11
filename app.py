@@ -63,4 +63,10 @@ def api_phrase():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=int(os.environ.get("PORT", 5001)))
+    # Debug off unless asked for: the Werkzeug debugger runs arbitrary code
+    # from the browser, which is a hole as soon as HOST is not loopback.
+    app.run(
+        debug=os.environ.get("FLASK_DEBUG") == "1",
+        host=os.environ.get("HOST", "127.0.0.1"),
+        port=int(os.environ.get("PORT", 5001)),
+    )

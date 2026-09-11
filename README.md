@@ -13,9 +13,21 @@ one verb + one adjective + one noun.
 
 Then open http://127.0.0.1:5001.
 
-Set `PORT` to run somewhere else:
+The dev server reads three environment variables:
 
-    PORT=8000 python app.py
+| variable | default | notes |
+| --- | --- | --- |
+| `PORT` | `5001` | port to listen on |
+| `HOST` | `127.0.0.1` | set to `0.0.0.0` to accept connections from other machines |
+| `FLASK_DEBUG` | unset (off) | `1` enables the reloader and the debugger |
+
+    PORT=8000 FLASK_DEBUG=1 python app.py
+
+Leave `FLASK_DEBUG` off whenever `HOST` is not loopback: the Werkzeug
+debugger executes arbitrary Python from the browser. For anything beyond
+your own machine, use a real WSGI server:
+
+    waitress-serve --host 0.0.0.0 --port 5001 app:app
 
 ## Editing the words
 
